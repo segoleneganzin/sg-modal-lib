@@ -71,8 +71,8 @@ The `Modal` component accepts the following props :
 | **`isOpen`**      | boolean         | yes      | Indicates whether the modal is open or closed                                                        |
 | **`toggleModal`** | function        | yes      | Function to toggle the modal's visibility                                                            |
 | **`infos`**       | object          | no       | Contains information for the modal                                                                   |
-|   **`title`**     | string          | no       | The title of the modal, displayed on top if provided. If no provided, it's not displayed.            |
-|   **`btnText`**   | string          | no       | The text for the button to close the modal, if provided. If no provided, it's not displayed          |
+|   **`infos.title`**     | string          | no       | The title of the modal, displayed on top if provided. If no provided, it's not displayed.            |
+|   **`infos.btnText`**   | string          | no       | The text for the button to close the modal, if provided. If no provided, it's not displayed          |
 | **`children`**    | React.ReactNode | no       | The content to be displayed inside the modal                                                         |
 | **`styleTheme`**  | string          | no       | Optional theme for the modal (e.g., `'light'`, `'dark'`). If no provided, default theme is applied.  |
 
