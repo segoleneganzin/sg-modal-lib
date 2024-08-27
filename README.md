@@ -94,12 +94,22 @@ Light theme : <br>
 Dark theme : <br>
 ![Dark theme screenshot](./src/assets/darkTheme.png) <br>
 
-## Technologies Used
+## Dependencies
 
-- **React** : A JavaScript library for building user interfaces.
-- **Vite** : A fast build tool and development server for modern web projects.
-- **Sass** : A preprocessor scripting language that is interpreted or compiled into CSS.
-- **PropTypes** : Runtime type checking for React props.
+### Production Dependencies
+
+- **[react](https://www.npmjs.com/package/react)**: ^18.3.1
+- **[react-dom](https://www.npmjs.com/package/react-dom)**: ^18.3.1
+- **[prop-types](https://www.npmjs.com/package/prop-types)**: ^15.8.1
+
+### Development Dependencies
+
+- **[vite](https://www.npmjs.com/package/vite)**: ^5.4.0
+- **[sass](https://www.npmjs.com/package/sass)**: ^1.77.8
+- **[eslint](https://www.npmjs.com/package/eslint)**: ^9.8.0
+- **[eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)**: ^7.35.0
+- **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)**: ^5.1.0-rc.0
+- **[copyfiles](https://www.npmjs.com/package/copyfiles)**: ^2.4.1
 
 ## Authors
 

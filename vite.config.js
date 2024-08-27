@@ -14,9 +14,12 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'lib/index.js'),
       name: 'sg-modal-lib',
       fileName: (format) => `sg-modal-lib.${format}.js`,
+      // Formats to build the library in (CommonJS and ES modules)
       formats: ['cjs', 'es'],
     },
     rollupOptions: {
+      // External dependencies that should not be bundled into the library
+      // expected to be available in the environment where the library is used
       external: ['react', 'react-dom'],
       output: {
         globals: {
