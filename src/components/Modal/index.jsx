@@ -2,18 +2,18 @@ import PropTypes from 'prop-types';
 
 /**
  * Modal component provides a dialog interface that can be toggled open or closed.
- * It displays a title, content, and a close button. Optionally, it can have a custom button text and style theme.
- * If no btnText provided, no button is displayed.
+ * It displays a title, content, and a close button.
+ * Optionally, it can have a custom button text and style theme.
  *
  * @param {Object} props
  * @param {boolean} props.isOpen - Indicates whether the modal is open or closed.
  * @param {function} props.toggleModal - Function to toggle the modal's visibility.
  * @param {Object} props.infos - Contains information for the modal.
- * @param {string} [props.infos.title] - The title of the modal, displayed in a header if provided.
- * @param {string} [props.infos.btnText] - The text for the button to close the modal, if provided.
+ * @param {string} [props.infos.title] - The title of the modal, displayed on top if provided. If no title provided, no title is displayed.
+ * @param {string} [props.infos.btnText] - The text for the button to close the modal, if provided. If no btnText provided, no button is displayed.
  * @param {React.ReactNode} props.children - The content to be displayed inside the modal.
  * @param {string} [props.styleTheme] - Optional theme for the modal (e.g., 'light', 'dark').
- * @returns {JSX.Element} - A JSX element representing the modal.
+ * @returns {JSX.Element}
  */
 const Modal = ({ isOpen, toggleModal, infos, children, styleTheme }) => {
   const { title, btnText } = infos;
