@@ -1,0 +1,28 @@
+@mixin flex-col-center() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin full-screen-fixed() {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin on-event() {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}
+
+// mobile first
+@mixin min-media-breakpoint($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
