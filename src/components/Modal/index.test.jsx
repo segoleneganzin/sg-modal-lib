@@ -28,7 +28,7 @@ describe('Modal Component', () => {
   });
 
   it('renders the modal without button and title if no infos provided', () => {
-    render(<Modal {...defaultProps} infos={''} />);
+    render(<Modal {...defaultProps} infos={{}} />);
     // Checks that title is not displayed
     expect(screen.queryByTestId('modal-title')).toBeNull();
     // Checks that button is not displayed
