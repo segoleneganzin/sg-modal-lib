@@ -1,11 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent, cleanup } from '@testing-library/react';
-import { describe, it, expect, vi, afterEach } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import Modal from '../Modal';
-
-afterEach(() => {
-  cleanup(); // Clean DOM after each test
-});
 
 describe('Modal Component', () => {
   const defaultProps = {
