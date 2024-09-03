@@ -1,6 +1,6 @@
 {
   "name": "sg-modal-lib",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Library to simplify modal creation and management.",
   "type": "module",
   "main": "./dist/sg-modal-lib.cjs.js",
@@ -21,7 +21,11 @@
     "dev": "vite",
     "build": "vite build && copyfiles ./index.d.ts dist",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "peerDependencies": {
     "react": "^18.3.1",
