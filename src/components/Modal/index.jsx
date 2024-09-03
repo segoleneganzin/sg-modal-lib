@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
@@ -19,6 +20,7 @@ const Modal = ({ isOpen, toggleModal, infos, children, styleTheme }) => {
   const { title, btnText } = infos;
   return (
     <div
+      data-testid='modal-parent'
       className={
         styleTheme ? `sg-modal-lib sg-modal-lib--${styleTheme}` : 'sg-modal-lib'
       }
@@ -35,6 +37,7 @@ const Modal = ({ isOpen, toggleModal, infos, children, styleTheme }) => {
           <button
             className='sg-modal-lib__body-close'
             onClick={toggleModal}
+            data-testid='modal-close'
             aria-label='Close modal'
             autoFocus
           >
@@ -43,7 +46,11 @@ const Modal = ({ isOpen, toggleModal, infos, children, styleTheme }) => {
             </svg>
           </button>
           {title && (
-            <h2 className='sg-modal-lib__body-title' id='modalTitle'>
+            <h2
+              className='sg-modal-lib__body-title'
+              id='modalTitle'
+              data-testid='modal-title'
+            >
               {title}
             </h2>
           )}
@@ -52,7 +59,11 @@ const Modal = ({ isOpen, toggleModal, infos, children, styleTheme }) => {
           </div>
         </section>
         {btnText && (
-          <button className='sg-modal-lib__btn' onClick={toggleModal}>
+          <button
+            className='sg-modal-lib__btn'
+            onClick={toggleModal}
+            data-testid='modal-additional-button'
+          >
             {btnText}
           </button>
         )}
