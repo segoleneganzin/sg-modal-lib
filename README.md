@@ -3,7 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/Made_with-ReactJS-blue)
 ![Static Badge](https://img.shields.io/badge/Publish_on-npm-red)
 
-**sg-modal** is a simple and flexible React library for creating and managing modals in your web applications.
+**sg-modal-lib-lib** is a simple and flexible React library for creating and managing modals in your web applications.
 It allows you to easily create custom modals with themes and configurations.
 
 ## Features
@@ -14,16 +14,16 @@ It allows you to easily create custom modals with themes and configurations.
 
 ## Installation
 
-To install the `sg-modal` library, you can use npm or yarn :
+To install the `sg-modal-lib` library, you can use npm or yarn :
 
 ```
-npm install sg-modal
+npm install sg-modal-lib
 ```
 
 or
 
 ```
-yarn add sg-modal
+yarn add sg-modal-lib
 ```
 
 ## Usage
@@ -32,8 +32,8 @@ Here's a basic example of how to use the `Modal` component in your React applica
 
 ```javascript
 import { useState } from 'react';
-import { Modal } from 'sg-modal';
-import 'sg-modal/style.css'; // Import default styles function
+import { Modal } from 'sg-modal-lib';
+import 'sg-modal-lib/style.css'; // Import default styles function
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -81,7 +81,7 @@ The `Modal` component accepts the following props :
 The library includes default styles that can be imported using :
 
 ```javascript
-import 'sg-modal/style.css';
+import 'sg-modal-lib/style.css';
 ```
 
 You can also override these styles in your project by applying additional styles.
@@ -91,8 +91,8 @@ Css className :
 - sg-modal-lib
 - sg-modal-lib\_\_bground ➡ set to use the entire window as background
 - sg-modal-lib\_\_bground-element ➡ set to use background color behind the modal
-- sg-modal-lib\_\_body
 - sg-modal-lib\_\_body-content
+- sg-modal-lib\_\_body
 - sg-modal-lib\_\_body-close
 - sg-modal-lib\_\_body-title
 - sg-modal-lib\_\_body-children-container
