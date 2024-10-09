@@ -3,7 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/Made_with-ReactJS-blue)
 ![Static Badge](https://img.shields.io/badge/Publish_on-npm-red)
 
-**sg-modal-lib-lib** is a simple and flexible React library for creating and managing modals in your web applications.
+**sg-modal-lib** is a simple and flexible React library for creating and managing modals in your web applications.
 It allows you to easily create custom modals with themes and configurations.
 
 ## Features
@@ -117,12 +117,15 @@ Dark theme : <br>
 
 ### Development Dependencies
 
-- **[vite](https://www.npmjs.com/package/vite)**: ^5.4.0
-- **[sass](https://www.npmjs.com/package/sass)**: ^1.77.8
-- **[eslint](https://www.npmjs.com/package/eslint)**: ^9.8.0
-- **[eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)**: ^7.35.0
-- **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)**: ^5.1.0-rc.0
+- **[vite](https://www.npmjs.com/package/vite)**: ^5.4.8
+- **[sass](https://www.npmjs.com/package/sass)**: ^1.79.4
 - **[copyfiles](https://www.npmjs.com/package/copyfiles)**: ^2.4.1
+- **[@testing-library/react](https://www.npmjs.com/package/@testing-library/react)**: ^16.0.1
+- **[@vitejs/plugin-react](https://www.npmjs.com/package/@vitejs/plugin-react)**: ^4.3.2
+- **[@vitest/coverage-v8](https://www.npmjs.com/package/@vitest/coverage-v8)**: ^2.1.2
+- **[globals](https://www.npmjs.com/package/globals)**: ^15.11.0
+- **[jsdom](https://www.npmjs.com/package/jsdom)**: ^25.0.1
+- **[vitest](https://www.npmjs.com/package/vitest)**: ^2.1.2
 
 ## Authors
 
