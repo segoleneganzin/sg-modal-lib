@@ -1,123 +1,94 @@
+@use 'sass:color';
 .sg-modal-lib {
   @include full-screen-fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
   overflow-y: auto;
-  z-index: 1000;
-  &__bground {
-    @include full-screen-fixed;
-    &-element {
-      @include full-screen-fixed;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 999;
+  z-index: 999;
+
+  &__dialog {
+    @include themify($themes) {
+      background-color: themed('modal-background-color');
     }
-  }
-  &__body {
-    @include flex-col-center;
-    background-color: rgb(236, 234, 234);
-    border: 2px solid black;
+    border: none;
     border-radius: 10px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    margin: 20% auto 0;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    column-gap: 0px;
+    row-gap: 50px;
+    padding: 10px;
     width: 85%;
-    &-content {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto auto;
-      grid-column-gap: 0px;
-      grid-row-gap: 50px;
-      padding-bottom: 50px;
-      width: 100%;
-    }
-    &-close {
-      align-self: center;
-      background: none;
-      border: none;
-      cursor: pointer;
-      grid-area: 1 / 2 / 2 / 3; // first row, second column
-      justify-self: end;
-      svg {
-        fill: rgb(248, 64, 64);
-        height: 18px;
-        width: 18px;
-      }
-    }
-    &-title {
-      align-self: center;
-      color: black;
-      grid-area: 1 / 1 / 2 / 2; // first row, first column
-      justify-self: start;
-    }
-
-    &-children-container {
-      grid-area: 2 / 1 / 3 / 3; // second row, all columns
-      text-align: center;
-      width: 100%;
-      p {
-        color: black;
-      }
-    }
-    @include min-media-breakpoint(768px) {
+    z-index: 1000;
+    @include media-breakpoint('min', tablet) {
       max-width: 650px;
     }
   }
+
+  &__title,
+  &__children {
+    @include themify($themes) {
+      color: themed('text-color');
+    }
+  }
+
+  &__title {
+    grid-area: 1 / 1 / 2 / 2; // first row, first column
+    @include themify($themes) {
+      color: themed('text-color');
+    }
+    justify-self: start;
+  }
+
+  &__close {
+    grid-area: 1 / 2 / 2 / 3; // first row, second column
+    background: none;
+    border: none;
+    cursor: pointer;
+    justify-self: end;
+    position: relative;
+    right: -5px;
+  }
+
+  &__children {
+    grid-area: 2 / 1 / 3 / 3; // second row, all columns
+    text-align: center;
+    width: 100%;
+  }
+
   &__btn {
-    background-color: rgb(248, 64, 64);
+    grid-area: 3 / 1 / 4 / 3; // third row, all columns
+    @include themify($themes) {
+      background-color: themed('btn-background-color');
+    }
     border: 0;
     border-radius: 10px;
     color: white;
     cursor: pointer;
-    font-size: 1.2rem;
-    height: 50px;
+    height: auto;
     margin: 0 auto;
-    padding: 15px 30px;
+    padding: 5px 20px;
     transition: all 0.2s;
-    -webkit-transition: all 0.2s;
     width: fit-content;
     @include on-event {
-      background-color: rgb(245, 35, 35);
-      box-shadow: 0 0 5px rgb(121, 2, 2);
-    }
-  }
-
-  /* Preformatted themes */
-  &--light {
-    .sg-modal-lib {
-      &__body {
-        background-color: white;
-        border: none;
-        &-title,
-        &-children-container p {
-          color: black;
-        }
-      }
-      &__btn {
-        background-color: #08d;
-        color: white;
-        @include on-event {
-          background-color: #06b;
-          box-shadow: 0 0 5px rgb(1, 44, 80);
-        }
-      }
-    }
-  }
-  &--dark {
-    .sg-modal-lib {
-      &__body {
-        background-color: black;
-        border: none;
-        &-title,
-        &-children-container p {
-          color: white;
-        }
-      }
-      &__btn {
-        background-color: #444;
-        color: white;
-        @include on-event {
-          background-color: #222;
-          box-shadow: 0 0 5px rgb(0, 5, 8);
-        }
+      @include themify($themes) {
+        background-color: color.adjust(
+          themed('btn-background-color'),
+          $lightness: 5%,
+          $space: hsl
+        );
+        box-shadow: 0 0 5px
+          color.adjust(
+            themed('btn-background-color'),
+            $lightness: -15%,
+            $space: hsl
+          );
       }
     }
   }

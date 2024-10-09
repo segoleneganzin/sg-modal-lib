@@ -9,6 +9,17 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './setupTests.js',
+    include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+    exclude: ['**/coverage/**', '**/node_modules/**', '**/lib/**'],
+    coverage: {
+      exclude: ['lib/**'],
+      include: ['src/**/*.{js,ts,jsx,tsx}'],
+    },
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/index.js'),
