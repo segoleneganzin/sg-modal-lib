@@ -49,7 +49,7 @@ const App = () => {
           isOpen={isOpen}
           toggleModal={toggleModal}
           infos={{ title: 'Example Modal', btnText: 'Close' }}
-          styleTheme='light'
+          styleTheme='dark'
         >
           <p>This is the content inside the modal!</p>
         </Modal>
@@ -74,7 +74,7 @@ The `Modal` component accepts the following props :
 | **`infos.title`** | string | no | The title of the modal, displayed on top if provided. If no provided, it's not displayed. |
 | **`infos.btnText`** | string | no | The text for the button to close the modal, if provided. If no provided, it's not displayed |
 | **`children`** | React.ReactNode | no | The content to be displayed inside the modal |
-| **`styleTheme`** | string | no | Optional theme for the modal (e.g., `'light'`, `'dark'`). If no provided, default theme is applied. |
+| **`styleTheme`** | string | no | Optional theme for the modal (e.g., `'light'`, `'dark'`). If no provided, light theme is applied. |
 
 ## Styling
 
@@ -89,19 +89,14 @@ You can also override these styles in your project by applying additional styles
 Css className :
 
 - sg-modal-lib
-- sg-modal-lib\_\_bground ➡ set to use the entire window as background
-- sg-modal-lib\_\_bground-element ➡ set to use background color behind the modal
-- sg-modal-lib\_\_body-content
-- sg-modal-lib\_\_body
-- sg-modal-lib\_\_body-close
-- sg-modal-lib\_\_body-title
-- sg-modal-lib\_\_body-children-container
+- sg-modal-lib\_\_dialog
+- sg-modal-lib\_\_close
+- sg-modal-lib\_\_title
+- sg-modal-lib\_\_children
 - sg-modal-lib\_\_btn
 
 > Remember to import the CSS file before your own so that you can override it.
 
-Default theme : <br>
-![Default theme screenshot](./src/assets/defaultTheme.png) <br>
 Light theme : <br>
 ![Light theme screenshot](./src/assets/lightTheme.png) <br>
 Dark theme : <br>
@@ -126,6 +121,10 @@ Dark theme : <br>
 - **[globals](https://www.npmjs.com/package/globals)**: ^15.11.0
 - **[jsdom](https://www.npmjs.com/package/jsdom)**: ^25.0.1
 - **[vitest](https://www.npmjs.com/package/vitest)**: ^2.1.2
+- **[eslint](https://www.npmjs.com/package/eslint)**: ^9.12.0
+- **[eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)**: ^7.37.1
+- **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)**: ^4.6.2
+- **[eslint-plugin-react-refresh](https://www.npmjs.com/package/eslint-plugin-react-refresh)**: ^0.4.12
 
 ## Authors
 

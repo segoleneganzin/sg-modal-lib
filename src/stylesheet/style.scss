@@ -1,8 +1,6 @@
 // Configuration
-@import './abstracts/mixins';
-
-// Vendors
-@import 'vendors/normalize';
+@import 'abstracts/variables', 'abstracts/mixins', 'abstracts/functions',
+  'abstracts/themeVariables';
 
 // Components
-@import './components/modal';
+@import './components/modal', './components/icons/iconClose';
