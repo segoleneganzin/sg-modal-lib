@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { configDefaults } from 'vitest/config';
 
 // Convert import.meta.url to a file path
 const __filename = fileURLToPath(import.meta.url);
@@ -14,7 +13,12 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './setupTests.js',
-    exclude: [...configDefaults.exclude, '**/tests/**'],
+    include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+    exclude: ['**/coverage/**', '**/node_modules/**', '**/lib/**'],
+    coverage: {
+      exclude: ['lib/**'],
+      include: ['src/**/*.{js,ts,jsx,tsx}'],
+    },
   },
   build: {
     lib: {
