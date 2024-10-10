@@ -83,18 +83,18 @@ export default App;
 ### Modal
 
 The `Modal` component accepts the following props :
-| Name | Type | Required | Description |
+| Name | Type | Required | Default value | Description |
 | --- | --- | --- | --- |
-| **`isOpen`** | boolean | yes | Indicates whether the modal is open or closed |
-| **`toggleModal`** | function | yes | Function to toggle the modal's visibility |
-| **`escapeClose`** | boolean | no | Allows the user to close the modal by pressing `ESC`, true if no provided |
-| **`overlayClickClose`** | boolean | no | Allows the user to close the modal by clicking the overlay, true if no provided |
-| **`showClose`** | boolean | no | Shows a (X) icon/link in the top-right corner, true if no provided |
-| **`title`** | string | no | The title of the modal, displayed on top if provided. If no provided, it's not displayed. |
-| **`btnText`** | string | no | The text for the button to close the modal, if provided. If no provided, it's not displayed |
-| **`children`** | React.ReactNode | no | The content to be displayed inside the modal |
-| **`styleTheme`** | string | no | Optional theme for the modal (e.g., `'light'`, `'dark'`). If no provided, light theme is applied. |
-| **`fadeDuration`** | number | no | Number of milliseconds the fade transition takes, 0 if no provided |
+| **`isOpen`** | boolean | yes | / | Indicates whether the modal is open or closed |
+| **`toggleModal`** | function | yes | / | Function to toggle the modal's visibility |
+| **`children`** | React.ReactNode | yes | / | The content to be displayed inside the modal |
+| **`escapeClose`** | boolean | no | true | Allows the user to close the modal by pressing `ESC` |
+| **`overlayClickClose`** | boolean | no | true | Allows the user to close the modal by clicking the overlay |
+| **`showClose`** | boolean | no | true | Shows a (X) icon/link in the top-right corner |
+| **`title`** | string | no | null | The title of the modal, displayed on top if provided. If no provided, it's not displayed. |
+| **`btnText`** | string | no | null | The text for the button to close the modal, if provided. If no provided, it's not displayed |
+| **`styleTheme`** | string | no | light | Optional theme for the modal (e.g., `'light'`, `'dark'`). |
+| **`fadeDuration`** | number | no | 0 | Number of milliseconds the fade transition takes |
 
 ## Styling
 
