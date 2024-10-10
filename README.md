@@ -22,10 +22,16 @@ It allows you to easily create custom modals with themes and configurations.
 - **[npm](https://www.npmjs.com/)** (^10.2.4)
 - **IDE** (VSCode recommended)
 
-To install the `sg-modal-lib` library, you can use npm or yarn :
+To install the `sg-modal-lib` library, you can use npm, pnpm or yarn :
 
 ```
 npm install sg-modal-lib
+```
+
+or
+
+```
+pnpm install sg-modal-lib
 ```
 
 or
