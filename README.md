@@ -84,7 +84,7 @@ export default App;
 
 The `Modal` component accepts the following props :
 | Name | Type | Required | Default value | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **`isOpen`** | boolean | yes | / | Indicates whether the modal is open or closed |
 | **`toggleModal`** | function | yes | / | Function to toggle the modal's visibility |
 | **`children`** | React.ReactNode | yes | / | The content to be displayed inside the modal |
