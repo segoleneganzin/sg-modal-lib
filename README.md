@@ -3,6 +3,8 @@
 ![Static Badge](https://img.shields.io/badge/Made_with-ReactJS-blue)
 ![Static Badge](https://img.shields.io/badge/Publish_on-npm-red)
 
+[🖥 Tester la librairie sur CodeSandBox](https://codesandbox.io/p/devbox/sg-modal-lib-test-kgm332)
+
 **sg-modal-lib** is a simple and flexible React library for creating and managing modals in your web applications.
 It allows you to easily create custom modals with themes and configurations.
 
