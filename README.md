@@ -20,8 +20,7 @@ It allows you to easily create custom modals with themes and configurations.
 - **[npm](https://www.npmjs.com/)** (^10.2.4)
 - **IDE** (VSCode recommended)
 
-To install the `sg-modal` library, you can use npm or yarn :
-
+To install the `sg-modal-lib` library, you can use npm or yarn :
 
 ```
 npm install sg-modal-lib
@@ -51,16 +50,19 @@ const App = () => {
   return (
     <div>
       <button onClick={toggleModal}>Open Modal</button>
-      {isModalOpen && (
-        <Modal
-          isOpen={isOpen}
-          toggleModal={toggleModal}
-          infos={{ title: 'Example Modal', btnText: 'Close' }}
-          styleTheme='dark'
-        >
-          <p>This is the content inside the modal!</p>
-        </Modal>
-      )}
+      <Modal
+        isOpen={isOpen}
+        toggleModal={toggleModal}
+        title='Title' /* Optionnal, default to null */
+        btnText='close' /* Optionnal, default to null */
+        escapeClose={false} /* Optionnal, default to true */
+        overlayClickClose={false} /* Optionnal, default to true */
+        showClose={false} /* Optionnal, default to true */
+        fadeDuration={300} /* Optionnal, default to 0 */
+        styleTheme='dark' /* Optionnal, default to light */
+      >
+        <p>This is the content inside the modal!</p>
+      </Modal>
     </div>
   );
 };
@@ -76,12 +78,15 @@ The `Modal` component accepts the following props :
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
 | **`isOpen`** | boolean | yes | Indicates whether the modal is open or closed |
+| **`escapeClose`** | boolean | no | Allows the user to close the modal by pressing `ESC`, true if no provided |
+| **`overlayClickClose`** | boolean | no | Allows the user to close the modal by clicking the overlay, true if no provided |
+| **`showClose`** | boolean | no | Shows a (X) icon/link in the top-right corner, true if no provided |
 | **`toggleModal`** | function | yes | Function to toggle the modal's visibility |
-| **`infos`** | object | no | Contains information for the modal |
-| **`infos.title`** | string | no | The title of the modal, displayed on top if provided. If no provided, it's not displayed. |
-| **`infos.btnText`** | string | no | The text for the button to close the modal, if provided. If no provided, it's not displayed |
+| **`title`** | string | no | The title of the modal, displayed on top if provided. If no provided, it's not displayed. |
+| **`btnText`** | string | no | The text for the button to close the modal, if provided. If no provided, it's not displayed |
 | **`children`** | React.ReactNode | no | The content to be displayed inside the modal |
 | **`styleTheme`** | string | no | Optional theme for the modal (e.g., `'light'`, `'dark'`). If no provided, light theme is applied. |
+| **`fadeDuration`** | number | no | Number of milliseconds the fade transition takes, 0 if no provided |
 
 ## Styling
 
@@ -96,7 +101,11 @@ You can also override these styles in your project by applying additional styles
 Css className :
 
 - sg-modal-lib
+- sg-modal-lib--open
+- sg-modal-lib--close
 - sg-modal-lib\_\_dialog
+- sg-modal-lib\_\_dialog--open
+- sg-modal-lib\_\_dialog--close
 - sg-modal-lib\_\_close
 - sg-modal-lib\_\_title
 - sg-modal-lib\_\_children

@@ -31,6 +31,7 @@ export default [
     rules: {
       ...react.configs.flat.recommended.rules,
       'react/react-in-jsx-scope': 'off',
+      'no-undef': 'error',
     },
   },
   {

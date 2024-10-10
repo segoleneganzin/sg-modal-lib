@@ -1,43 +1,104 @@
+import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import IconClose from '../icons/IconClose';
 
 /**
  * Modal component provides a dialog interface that can be toggled open or closed.
- * It displays a title, content, and a close button.
- * Optionally, it can have a custom button text and style theme.
+ * It displays content and, by default a close button.
+ * Optionally, it can have a title, a custom button text, a style theme.
+ * It is possible to unset the escape for close functionality
+ * It is possible to unset the click on overlay for close functionality
+ * It is possible to unset the close button
+ * It is possible to set a fade duration for smoothly diplay
  *
  * @param {Object} props
  * @param {boolean} props.isOpen - Indicates whether the modal is open or closed.
  * @param {function} props.toggleModal - Function to toggle the modal's visibility.
- * @param {Object} props.infos - Contains information for the modal.
- * @param {string} [props.infos.title] - The title of the modal, displayed on top if provided. If no title provided, no title is displayed.
- * @param {string} [props.infos.btnText] - The text for the button to close the modal, if provided. If no btnText provided, no button is displayed.
+ * @param {boolean} [props.escapeClose] - Allows the user to close the modal by pressing `ESC`.
+ * @param {boolean} [props.overlayClickClose] - Allows the user to close the modal by clicking the overlay.
+ * @param {boolean} [props.showClose] - Shows a (X) icon/link in the top-right corner.
+ * @param {string} [props.title] - The title of the modal, displayed on top if provided. If no title provided, no title is displayed.
+ * @param {string} [props.btnText] - The text for the button to close the modal, if provided. If no btnText provided, no button is displayed.
+ * @param {number} [props.fadeDuration] - Number of milliseconds the fade transition takes (0 by default)
  * @param {string} [props.styleTheme] - Optional theme for the modal (e.g., 'light', 'dark'). If no provided, light theme is applied
  * @param {React.ReactNode} props.children - The content to be displayed inside the modal.
  * @returns {JSX.Element}
  */
-const Modal = ({ isOpen, toggleModal, infos, styleTheme, children }) => {
-  const { title, btnText } = infos;
+const Modal = ({
+  isOpen,
+  toggleModal,
+  escapeClose = true,
+  overlayClickClose = true,
+  showClose = true,
+  title,
+  btnText,
+  styleTheme = 'light',
+  fadeDuration = 0,
+  children,
+}) => {
+  const modalRef = useRef(null);
 
-  const theme = styleTheme || 'light';
-
-  document.body.style.overflow = 'hidden';
-
-  const closeModal = () => {
-    document.body.style.overflow = 'unset';
-    toggleModal();
+  // Function to handle overlay clicks to close the modal
+  const handleOverlayClick = (event) => {
+    if (overlayClickClose && modalRef.current === event.target) {
+      toggleModal();
+    }
   };
+
+  // Effect to lock or unlock scrolling on the body when the modal opens or closes
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
+
+  // Effect to handle closing the modal with the Escape key
+  useEffect(() => {
+    if (escapeClose && isOpen) {
+      const handleEscKey = (event) => {
+        if (event.key === 'Escape') {
+          toggleModal();
+        }
+      };
+      document.addEventListener('keydown', handleEscKey);
+      return () => {
+        document.removeEventListener('keydown', handleEscKey);
+      };
+    }
+  }, [isOpen, escapeClose]);
 
   return (
     <div
+      ref={modalRef}
+      onClick={handleOverlayClick}
       data-testid='modal-parent'
-      className={`sg-modal-lib sg-modal-lib--${theme}`}
+      className={`sg-modal-lib sg-modal-lib--${styleTheme} ${
+        isOpen ? 'sg-modal-lib--open' : 'sg-modal-lib--close'
+      }`}
+      style={
+        isOpen
+          ? {
+              transition: `visibility 0ms`,
+            }
+          : {
+              transition: `visibility 0ms ${fadeDuration}ms`, // delay to permitted dialog animation before disappear
+            }
+      }
       aria-hidden={!isOpen}
       role='dialog'
       aria-describedby={title ? title : 'modal'}
       autoFocus
     >
-      <dialog className={`sg-modal-lib__dialog`}>
+      <dialog
+        className={`sg-modal-lib__dialog ${
+          isOpen ? 'sg-modal-lib__dialog--open' : 'sg-modal-lib__dialog--close'
+        }`}
+        style={{
+          transition: `opacity ${fadeDuration}ms ease-in-out, transform ${fadeDuration}ms ease-in-out`,
+        }}
+      >
         {title && (
           <h2
             className='sg-modal-lib__title'
@@ -47,20 +108,22 @@ const Modal = ({ isOpen, toggleModal, infos, styleTheme, children }) => {
             {title}
           </h2>
         )}
-        <button
-          className='sg-modal-lib__close'
-          onClick={closeModal}
-          data-testid='modal-close'
-          aria-label='Close modal'
-          autoFocus
-        >
-          <IconClose />
-        </button>
+        {showClose && (
+          <button
+            className='sg-modal-lib__close'
+            onClick={toggleModal}
+            data-testid='modal-close'
+            aria-label='Close modal'
+            autoFocus
+          >
+            <IconClose />
+          </button>
+        )}
         <div className='sg-modal-lib__children'>{children}</div>
         {btnText && (
           <button
             className='sg-modal-lib__btn'
-            onClick={closeModal}
+            onClick={toggleModal}
             data-testid='modal-additional-button'
           >
             {btnText}
@@ -74,12 +137,14 @@ const Modal = ({ isOpen, toggleModal, infos, styleTheme, children }) => {
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
-  infos: PropTypes.shape({
-    title: PropTypes.string,
-    btnText: PropTypes.string,
-  }),
-  children: PropTypes.node.isRequired,
+  escapeClose: PropTypes.bool,
+  overlayClickClose: PropTypes.bool,
+  showClose: PropTypes.bool,
+  title: PropTypes.string,
+  btnText: PropTypes.string,
+  fadeDuration: PropTypes.number,
   styleTheme: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default Modal;

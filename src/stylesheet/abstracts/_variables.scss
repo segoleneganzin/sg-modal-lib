@@ -1,13 +1,3 @@
-$colors: (
-  primary: rgb(17 73 17),
-  secondary: rgb(186 190 152),
-  tertiary: rgb(90 110 12),
-  extra: rgb(237 127 16),
-  light: rgb(232 232 232),
-  text: rgb(232 232 232),
-  error: rgb(233 113 113),
-);
-/// *********************** BREAKPOINTS
 $breakpoints: (
   small-mobile: 360px,
   medium-mobile: 425px,
@@ -18,7 +8,6 @@ $breakpoints: (
   large-desktop: 1920px,
 );
 
-/// *********************** RADIUS
 $radius: (
   small: 5px,
   medium: 10px,

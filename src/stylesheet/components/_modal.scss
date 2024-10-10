@@ -8,8 +8,14 @@
   height: 100vh;
   margin: 0;
   overflow-y: auto;
+  pointer-events: auto;
   z-index: 999;
-
+  &--open {
+    visibility: visible;
+  }
+  &--close {
+    visibility: hidden;
+  }
   &__dialog {
     @include themify($themes) {
       background-color: themed('modal-background-color');
@@ -28,6 +34,15 @@
     z-index: 1000;
     @include media-breakpoint('min', tablet) {
       max-width: 650px;
+    }
+    &--open {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &--close {
+      opacity: 0;
+      transform: scale(0.95);
     }
   }
 
