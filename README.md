@@ -5,6 +5,8 @@
 
 🖥 [Tester la librairie sur CodeSandBox](https://codesandbox.io/p/devbox/sg-modal-lib-test-kgm332)
 
+🔎 [Voir la librairie sur npm](https://www.npmjs.com/package/sg-modal-lib)
+
 **sg-modal-lib** is a simple and flexible React library for creating and managing modals in your web applications.
 It allows you to easily create custom modals with themes and configurations.
 
