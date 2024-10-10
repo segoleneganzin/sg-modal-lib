@@ -3,7 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/Made_with-ReactJS-blue)
 ![Static Badge](https://img.shields.io/badge/Publish_on-npm-red)
 
-[🖥 Tester la librairie sur CodeSandBox](https://codesandbox.io/p/devbox/sg-modal-lib-test-kgm332)
+🖥 [Tester la librairie sur CodeSandBox](https://codesandbox.io/p/devbox/sg-modal-lib-test-kgm332)
 
 **sg-modal-lib** is a simple and flexible React library for creating and managing modals in your web applications.
 It allows you to easily create custom modals with themes and configurations.
@@ -80,10 +80,10 @@ The `Modal` component accepts the following props :
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
 | **`isOpen`** | boolean | yes | Indicates whether the modal is open or closed |
+| **`toggleModal`** | function | yes | Function to toggle the modal's visibility |
 | **`escapeClose`** | boolean | no | Allows the user to close the modal by pressing `ESC`, true if no provided |
 | **`overlayClickClose`** | boolean | no | Allows the user to close the modal by clicking the overlay, true if no provided |
 | **`showClose`** | boolean | no | Shows a (X) icon/link in the top-right corner, true if no provided |
-| **`toggleModal`** | function | yes | Function to toggle the modal's visibility |
 | **`title`** | string | no | The title of the modal, displayed on top if provided. If no provided, it's not displayed. |
 | **`btnText`** | string | no | The text for the button to close the modal, if provided. If no provided, it's not displayed |
 | **`children`** | React.ReactNode | no | The content to be displayed inside the modal |
