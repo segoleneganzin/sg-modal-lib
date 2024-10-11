@@ -53,15 +53,16 @@ import 'sg-modal-lib/style.css'; // Import default styles function
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+
+  const toggleModal = useCallback(() => {
+    setIsModalOpen((prevIsOpen) => !prevIsOpen);
+  }, []);
 
   return (
     <div>
       <button onClick={toggleModal}>Open Modal</button>
       <Modal
-        isOpen={isOpen}
+        isOpen={isModalOpen}
         toggleModal={toggleModal}
         title='Title' /* Optionnal, default to null */
         btnText='close' /* Optionnal, default to null */

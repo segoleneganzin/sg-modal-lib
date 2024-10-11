@@ -38,6 +38,17 @@ const Modal = ({
 }) => {
   const modalRef = useRef(null);
 
+  // Pure function to determine body overflow style
+  const getBodyOverflowStyle = (isOpen) => (isOpen ? 'hidden' : 'unset');
+
+  // Effect to lock or unlock scrolling on the body when the modal opens or closes
+  useEffect(() => {
+    document.body.style.overflow = getBodyOverflowStyle(isOpen);
+    return () => {
+      document.body.style.overflow = 'unset'; // reset on unmount
+    };
+  }, [isOpen]);
+
   // Function to handle overlay clicks to close the modal
   const handleOverlayClick = (event) => {
     if (overlayClickClose && modalRef.current === event.target) {
@@ -45,23 +56,15 @@ const Modal = ({
     }
   };
 
-  // Effect to lock or unlock scrolling on the body when the modal opens or closes
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+  const handleEscKey = (event) => {
+    if (event.key === 'Escape' && escapeClose && isOpen) {
+      toggleModal();
     }
-  }, [isOpen]);
+  };
 
   // Effect to handle closing the modal with the Escape key
   useEffect(() => {
     if (escapeClose && isOpen) {
-      const handleEscKey = (event) => {
-        if (event.key === 'Escape') {
-          toggleModal();
-        }
-      };
       document.addEventListener('keydown', handleEscKey);
       return () => {
         document.removeEventListener('keydown', handleEscKey);
