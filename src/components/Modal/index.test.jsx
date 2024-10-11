@@ -7,12 +7,9 @@ describe('Modal Component', () => {
   const defaultProps = {
     isOpen: true,
     toggleModal: vi.fn(), // Mock function
-    infos: {
-      title: 'Test Modal',
-      btnText: 'Close',
-    },
+    title: 'Test Modal',
+    btnText: 'Close',
     children: <div>Modal Content</div>,
-    styleTheme: 'light',
   };
 
   it('renders the modal with title and content when open', () => {
@@ -27,8 +24,8 @@ describe('Modal Component', () => {
     expect(screen.getByText('Close')).toBeTruthy();
   });
 
-  it('renders the modal without button and title if no infos provided', () => {
-    render(<Modal {...defaultProps} infos={{}} />);
+  it('renders the modal without button and title if no provided', () => {
+    render(<Modal {...defaultProps} title='' btnText='' />);
     // Checks that title is not displayed
     expect(screen.queryByTestId('modal-title')).toBeNull();
     // Checks that button is not displayed
