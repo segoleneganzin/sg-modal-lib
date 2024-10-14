@@ -95,7 +95,7 @@ The `Modal` component accepts the following props :
 | **`overlayClickClose`** | boolean | no | true | Allows the user to close the modal by clicking the overlay |
 | **`showClose`** | boolean | no | true | Shows a (X) icon/link in the top-right corner |
 | **`title`** | string | no | null | The title of the modal, displayed on top if provided. If no provided, it's not displayed. |
-| **`btnText`** | string | no | null | The text for the button to close the modal, if provided. If no provided, it's not displayed |
+| **`btnText`** | string | no | null | The text for the additionnal bottom to close the modal, if provided. If no btnText provided, no button is displayed. |
 | **`styleTheme`** | string | no | light | Optional theme for the modal (e.g., `'light'`, `'dark'`). |
 | **`fadeDuration`** | number | no | 0 | Number of milliseconds the fade transition takes |
 
