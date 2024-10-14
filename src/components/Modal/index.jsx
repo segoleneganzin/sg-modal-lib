@@ -56,6 +56,7 @@ const Modal = ({
     }
   };
 
+  // Function to handle closing the modal with the Escape key
   const handleEscKey = (event) => {
     if (event.key === 'Escape' && escapeClose && isOpen) {
       toggleModal();
@@ -90,9 +91,6 @@ const Modal = ({
             }
       }
       aria-hidden={!isOpen}
-      role='dialog'
-      aria-describedby={title ? title : 'modal'}
-      autoFocus
     >
       <dialog
         className={`sg-modal-lib__dialog ${
@@ -101,6 +99,7 @@ const Modal = ({
         style={{
           transition: `opacity ${fadeDuration}ms ease-in-out, transform ${fadeDuration}ms ease-in-out`,
         }}
+        aria-describedby={title ? title : 'modal'}
       >
         {title && (
           <h2
