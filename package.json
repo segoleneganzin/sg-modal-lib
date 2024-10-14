@@ -1,6 +1,6 @@
 {
   "name": "sg-modal-lib",
-  "version": "1.1.5",
+  "version": "1.1.7",
   "description": "Library to simplify modal creation and management.",
   "type": "module",
   "main": "./dist/sg-modal-lib.cjs.js",
