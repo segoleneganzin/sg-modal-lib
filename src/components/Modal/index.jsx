@@ -4,8 +4,8 @@ import IconClose from '../icons/IconClose';
 
 /**
  * Modal component provides a dialog interface that can be toggled open or closed.
- * It displays content and, by default a close button.
- * Optionally, it can have a title, a custom button text, a style theme.
+ * It displays content and, by default a cross close button on top right.
+ * Optionally, it can have a title, a bottom custom button text, a style theme.
  * It is possible to unset the escape for close functionality
  * It is possible to unset the click on overlay for close functionality
  * It is possible to unset the close button
@@ -18,7 +18,7 @@ import IconClose from '../icons/IconClose';
  * @param {boolean} [props.overlayClickClose] - Allows the user to close the modal by clicking the overlay.
  * @param {boolean} [props.showClose] - Shows a (X) icon/link in the top-right corner.
  * @param {string} [props.title] - The title of the modal, displayed on top if provided. If no title provided, no title is displayed.
- * @param {string} [props.btnText] - The text for the button to close the modal, if provided. If no btnText provided, no button is displayed.
+ * @param {string} [props.btnText] - The text for the additionnal bottom to close the modal, if provided. If no btnText provided, no button is displayed.
  * @param {number} [props.fadeDuration] - Number of milliseconds the fade transition takes (0 by default)
  * @param {string} [props.styleTheme] - Optional theme for the modal (e.g., 'light', 'dark'). If no provided, light theme is applied
  * @param {React.ReactNode} props.children - The content to be displayed inside the modal.
@@ -74,6 +74,7 @@ const Modal = ({
   }, [isOpen, escapeClose]);
 
   return (
+    // Overlay of modal
     <div
       ref={modalRef}
       onClick={handleOverlayClick}
@@ -92,6 +93,7 @@ const Modal = ({
       }
       aria-hidden={!isOpen}
     >
+      {/* Modal window*/}
       <dialog
         className={`sg-modal-lib__dialog ${
           isOpen ? 'sg-modal-lib__dialog--open' : 'sg-modal-lib__dialog--close'
@@ -101,6 +103,7 @@ const Modal = ({
         }}
         aria-describedby={title ? title : 'modal'}
       >
+        {/* Optional title */}
         {title && (
           <h2
             className='sg-modal-lib__title'
@@ -110,6 +113,8 @@ const Modal = ({
             {title}
           </h2>
         )}
+
+        {/* Close button cross */}
         {showClose && (
           <button
             className='sg-modal-lib__close'
@@ -121,7 +126,11 @@ const Modal = ({
             <IconClose />
           </button>
         )}
+
+        {/* Modal content */}
         <div className='sg-modal-lib__children'>{children}</div>
+
+        {/* Optional button */}
         {btnText && (
           <button
             className='sg-modal-lib__btn'
