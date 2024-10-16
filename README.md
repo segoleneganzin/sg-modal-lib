@@ -15,6 +15,11 @@ It allows you to easily create custom modals with themes and configurations.
 - **Easy to use** : Simple library for creating modals.
 - **Customizable** : Apply different themes (light/dark) and custom button text.
 - **Lightweight** : Built with minimal dependencies to keep your bundle size small.
+- **Tested** : Thoroughly tested with unit tests to ensure reliability and performance.
+- **Accessible** : Designed with accessibility in mind, following best practices to ensure usability for all users.
+- **Responsive** : Adapts seamlessly to various screen sizes and devices for a consistent user experience.
+- **Flexible** : Supports various modal types (confirmation, alert, etc.) to meet diverse use cases.
+- **Easy integration** : Works well with popular frameworks and libraries, making it simple to implement in existing projects.
 
 ## Installation
 
@@ -124,10 +129,10 @@ Css className :
 
 > Remember to import the CSS file before your own so that you can override it.
 
-Light theme : <br>
-![Light theme screenshot](./src/assets/lightTheme.png) <br>
-Dark theme : <br>
-![Dark theme screenshot](./src/assets/darkTheme.png) <br>
+Light theme :  
+![Light theme screenshot](./src/assets/lightTheme.png)  
+Dark theme :  
+![Dark theme screenshot](./src/assets/darkTheme.png)
 
 ## Dependencies
 
