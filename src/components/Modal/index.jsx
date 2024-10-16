@@ -102,6 +102,7 @@ const Modal = ({
           transition: `opacity ${fadeDuration}ms ease-in-out, transform ${fadeDuration}ms ease-in-out`,
         }}
         aria-describedby={title ? title : 'modal'}
+        data-testid='modal-dialog'
       >
         {/* Optional title */}
         {title && (
